@@ -1,0 +1,119 @@
+#include <iostream>
+#include <vector>
+#include "hangman.h"
+using namespace std;
+//define functions
+
+void greet()
+{
+  std::cout << "=====================\n";
+  std::cout << "SPANZURATOAREA!HAIDETI LA JOC!\n";
+  std::cout << "=====================\n";
+  std::cout << "Instructiuni: Salvati-va prietenul de a fi spanzurat ghicind literele din cuvantul de cod.\n";
+}
+
+void display_misses(int misses)
+{
+  if(misses==0)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+  else if(misses==1)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"  O   | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+  else if(misses==2)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"  O   | \n";
+    cout<<"  |   | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+  else if(misses==3)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"  O   | \n";
+    cout<<" /|   | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+  else if(misses==4)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"  O   | \n";
+    cout<<" /|\\  | \n";
+    cout<<"      | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+  else if(misses==5)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"  O   | \n";
+    cout<<" /|\\  | \n";
+    cout<<" /    | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+  else if(misses==6)
+  {
+    cout<<"  +---+ \n";
+    cout<<"  |   | \n";
+    cout<<"  O   | \n";
+    cout<<" /|\\  | \n";
+    cout<<" / \\  | \n";
+    cout<<"      | \n";
+    cout<<" ========= \n";
+  }
+
+}
+
+
+void display_status(vector<char> incorrect, string answer)
+{
+  cout<<"Presupuneri incorecte: \n";
+
+  for(int i = 0; i<incorrect.size(); i++)
+  {
+    cout<<incorrect[i]<<" ";
+  }
+
+  cout<<"\nCuvant de cod:\n";
+
+  for(int i = 0; i<answer.length(); i++)
+  {
+    cout<<answer[i]<<" ";
+  }
+}
+
+
+void end_game(string answer, string codeword)
+{
+  if(answer==codeword)
+  {
+    cout<<"Ura! Ai salvat persoana de la spanzurare și ai castigat o medalie de onoare!!\n";
+  }
+  else
+  {
+    cout<<"Nuuuuuu! Omul este spanzurat!\n";
+  }
+}
